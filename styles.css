@@ -127,10 +127,9 @@ p { margin: 0; }
 }
 .brand::before {
   content: '';
-  width: 13px;
-  height: 13px;
-  background: var(--acid);
-  border: 2px solid var(--ink);
+  width: 30px;
+  height: 30px;
+  background: url(assets/mark.svg) center / contain no-repeat;
   flex: none;
 }
 .nav { display: flex; gap: clamp(14px, 2.4vw, 30px); }
@@ -772,7 +771,7 @@ body.show-grid .grid-guides { display: block; }
   .switches .chip#gridToggle { display: none; }
   .chip { padding: 7px 8px; font-size: 10px; }
   .brand { font-size: 18px; }
-  .brand::before { width: 10px; height: 10px; }
+  .brand::before { width: 24px; height: 24px; }
   .sec-note { text-align: left; }
   .facts > div { grid-template-columns: 1fr; gap: 2px; }
   .cert { grid-template-columns: 30px minmax(0, 1fr) auto; gap: 8px 14px; }
