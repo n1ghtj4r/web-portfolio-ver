@@ -134,7 +134,7 @@ p { margin: 0; }
 .nav { display: flex; gap: clamp(16px, 2.4vw, 34px); }
 .nav a {
   font: 700 clamp(11px, .85vw, 13px)/1 var(--mono);
-  letter-spacing: .12em;
+  letter-spacing: .20em;
   text-transform: uppercase;
   text-decoration: none;
   padding: 8px 0;
