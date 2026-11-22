@@ -1,5 +1,5 @@
 /* =========================================================
-   Brutalist portfolio
+   NICO VOSS — brutalist portfolio
    Concrete & acid: paper, 3px ink borders, hard shadows.
    Edit tokens below to re-skin the whole site.
    ========================================================= */
@@ -40,7 +40,7 @@
   --shadow: 10px 10px 0 var(--ink);
   --display: 'Anton', 'Arial Narrow', Impact, sans-serif;
   --mono: 'Space Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --pad: clamp(16px, 4vw, 48px);
+  --pad: clamp(12px, 1.6vw, 24px);
   --gap: clamp(24px, 5vw, 64px);
 }
 
@@ -79,8 +79,8 @@ p { margin: 0; }
 
 .wrap {
   width: 100%;
-  max-width: 1400px;
-  margin: 0 auto;
+  max-width: none;
+  margin: 0;
   padding: 0 var(--pad);
 }
 
@@ -127,9 +127,10 @@ p { margin: 0; }
 }
 .brand::before {
   content: '';
-  width: 30px;
-  height: 30px;
-  background: url(assets/mark.svg) center / contain no-repeat;
+  width: 13px;
+  height: 13px;
+  background: var(--acid);
+  border: 2px solid var(--ink);
   flex: none;
 }
 .nav { display: flex; gap: clamp(14px, 2.4vw, 30px); }
@@ -199,13 +200,13 @@ p { margin: 0; }
   margin: 0;
   font-family: var(--display);
   font-weight: 400;
-  font-size: clamp(76px, 26vw, 380px);
+  font-size: max(76px, 25vw);
   line-height: .79;
   letter-spacing: -.015em;
   text-transform: uppercase;
 }
 .hero-name .l1 { display: block; }
-.hero-name .l2 { display: block; padding-left: clamp(0px, 9vw, 150px); }
+.hero-name .l2 { display: block; padding-left: clamp(0px, 7vw, 140px); }
 .hero-name .mark {
   display: inline-block;
   background: var(--acid);
@@ -761,6 +762,7 @@ body.show-grid .grid-guides { display: block; }
 
 @media (max-width: 620px) {
   body { font-size: 14px; }
+  .head-inner { flex-wrap: wrap; row-gap: 8px; padding-top: 8px; padding-bottom: 8px; }
   .hero-top { grid-template-columns: 1fr 1fr; gap: 14px; }
   .hero-top .topitem:first-child { grid-column: 1 / -1; }
   .hero-name { font-size: clamp(64px, 28vw, 130px); }
@@ -771,7 +773,7 @@ body.show-grid .grid-guides { display: block; }
   .switches .chip#gridToggle { display: none; }
   .chip { padding: 7px 8px; font-size: 10px; }
   .brand { font-size: 18px; }
-  .brand::before { width: 24px; height: 24px; }
+  .brand::before { width: 10px; height: 10px; }
   .sec-note { text-align: left; }
   .facts > div { grid-template-columns: 1fr; gap: 2px; }
   .cert { grid-template-columns: 30px minmax(0, 1fr) auto; gap: 8px 14px; }
