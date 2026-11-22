@@ -110,49 +110,47 @@ p { margin: 0; }
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  min-height: 58px;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  min-height: clamp(66px, 5.6vw, 86px);
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   font-family: var(--display);
-  font-size: 22px;
+  font-size: clamp(24px, 2vw, 34px);
   letter-spacing: .03em;
   text-transform: uppercase;
   text-decoration: none;
   white-space: nowrap;
 }
-.brand::before {
-  content: '';
-  width: 13px;
-  height: 13px;
-  background: var(--acid);
-  border: 2px solid var(--ink);
+.brand-mark {
+  display: block;
+  width: clamp(28px, 2.4vw, 38px);
+  height: clamp(28px, 2.4vw, 38px);
   flex: none;
 }
-.nav { display: flex; gap: clamp(14px, 2.4vw, 30px); }
+.nav { display: flex; gap: clamp(16px, 2.4vw, 34px); }
 .nav a {
-  font: 700 11px/1 var(--mono);
+  font: 700 clamp(11px, .85vw, 13px)/1 var(--mono);
   letter-spacing: .12em;
   text-transform: uppercase;
   text-decoration: none;
-  padding: 6px 0;
+  padding: 8px 0;
   border-bottom: 2px solid transparent;
 }
 .nav a:hover,
 .nav a:focus-visible { border-bottom-color: var(--ink); }
 .switches { display: flex; gap: 8px; }
 .chip {
-  font: 700 11px/1 var(--mono);
+  font: 700 clamp(11px, .82vw, 12.5px)/1 var(--mono);
   letter-spacing: .1em;
   text-transform: uppercase;
   color: inherit;
   background: transparent;
   border: 2px solid var(--ink);
-  padding: 8px 10px;
+  padding: 10px 13px;
   cursor: pointer;
 }
 .chip:hover { background: var(--acid); color: var(--on-acid); }
@@ -200,13 +198,23 @@ p { margin: 0; }
   margin: 0;
   font-family: var(--display);
   font-weight: 400;
-  font-size: max(76px, 25vw);
-  line-height: .79;
+  font-size: 23vw;
+  line-height: .8;
   letter-spacing: -.015em;
   text-transform: uppercase;
 }
 .hero-name .l1 { display: block; }
-.hero-name .l2 { display: block; padding-left: clamp(0px, 7vw, 140px); }
+.hero-name .l2 { display: block; padding-left: clamp(0px, 6vw, 140px); }
+.hero-side {
+  position: absolute;
+  right: 8px;
+  top: 120px;
+  writing-mode: vertical-rl;
+  font: 700 10px var(--mono);
+  letter-spacing: .35em;
+  text-transform: uppercase;
+  opacity: .45;
+}
 .hero-name .mark {
   display: inline-block;
   background: var(--acid);
@@ -261,17 +269,6 @@ p { margin: 0; }
 .srow span:last-child { font-weight: 700; }
 .btn-sm { margin-top: 14px; width: 100%; justify-content: space-between; }
 
-.hero-side {
-  position: absolute;
-  right: 8px;
-  top: 120px;
-  writing-mode: vertical-rl;
-  font: 700 10px var(--mono);
-  letter-spacing: .35em;
-  text-transform: uppercase;
-  opacity: .45;
-}
-
 /* ---------- ticker ---------- */
 .ticker {
   background: var(--acid);
@@ -294,13 +291,16 @@ p { margin: 0; }
 @keyframes marquee { to { transform: translateX(-50%); } }
 .ticker:hover .ticker-track { animation-play-state: paused; }
 
+/* keep the sticky header from covering the hero's top row on "back to top" */
+main#top { scroll-margin-top: clamp(72px, 6vw, 92px); }
+
 /* ---------- sections ---------- */
 .sec {
   position: relative;
   overflow: hidden;
   padding: clamp(44px, 7vw, 100px) 0;
   border-bottom: var(--line);
-  scroll-margin-top: 76px;
+  scroll-margin-top: 96px;
 }
 .sec-head {
   display: flex;
@@ -738,8 +738,8 @@ body.show-grid .grid-guides { display: block; }
 /* ---------- responsive ---------- */
 @media (max-width: 900px) {
   .hero-bottom { grid-template-columns: 1fr; align-items: start; }
-  .status-card { max-width: 360px; }
   .hero-side { display: none; }
+  .status-card { max-width: 360px; }
   .about-grid { grid-template-columns: 1fr; }
   .rail { display: none; }
   .cards { grid-template-columns: 1fr; }
@@ -765,15 +765,15 @@ body.show-grid .grid-guides { display: block; }
   .head-inner { flex-wrap: wrap; row-gap: 8px; padding-top: 8px; padding-bottom: 8px; }
   .hero-top { grid-template-columns: 1fr 1fr; gap: 14px; }
   .hero-top .topitem:first-child { grid-column: 1 / -1; }
-  .hero-name { font-size: clamp(64px, 28vw, 130px); }
+  .hero-name { font-size: 21vw; }
   .hero-name .l2 { padding-left: 18px; }
   .hero-name .mark { box-shadow: 7px 7px 0 var(--ink); }
   .nav { gap: 12px; }
   .nav a { font-size: 10px; letter-spacing: .08em; }
   .switches .chip#gridToggle { display: none; }
   .chip { padding: 7px 8px; font-size: 10px; }
-  .brand { font-size: 18px; }
-  .brand::before { width: 10px; height: 10px; }
+  .brand { font-size: clamp(18px, 5.2vw, 24px); gap: 9px; }
+  .brand-mark { width: 26px; height: 26px; }
   .sec-note { text-align: left; }
   .facts > div { grid-template-columns: 1fr; gap: 2px; }
   .cert { grid-template-columns: 30px minmax(0, 1fr) auto; gap: 8px 14px; }
